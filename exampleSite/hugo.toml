@@ -1,0 +1,79 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'My New Hugo Site'
+theme = 'hugo-theme-hondo'
+disableKinds = [ "taxonomy", "term" ]
+ignoreErrors = [ "error-disable-taxonomy" ]
+
+[params]
+  description = ""
+  keywords = []
+
+  mainCss = '/css/main.css'
+  mainJs = '/js/main.js'
+  [[params.baseStyles]]
+    src = 'css/fonts.css'
+  [[params.baseStyles]]
+    src = 'css/variables.css'
+  [[params.baseStyles]]
+    src = 'css/normalize.css'
+  [[params.baseStyles]]
+    src = 'css/main.css'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Posts'
+  pageRef = '/posts'
+  weight = 20
+
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 30
+
+[[menus.main]]
+  name = 'Github'
+  url = 'https://github.com/haydenk'
+  weight = 99
+  [menus.main.params]
+    target = '_blank'
+    rel = 'external'
+
+[permalinks]
+  [permalinks.page]
+    posts = '/post/:year/:month/:day/:slug/'
+    today = '/today/:year-:month-:day/'
+  [permalinks.section]
+    posts = '/posts/'
+    today = '/todays/'
+
+[outputFormats]
+  [outputFormats.rss]
+    mediaType = "application/rss+xml"
+    baseName = "feed"
+  [outputFormats.json]
+    mediaType = "application/json"
+    baseName = "feed"
+    isPlainText = true
+
+[outputs]
+  home = ['html', 'rss', 'json']
+  page = ['html']
+  section = ['html']
+  taxonomy = ['html']
+  term = ['html']
+
+[pagination]
+  pagerSize = 5
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+    
+  # Set to false to disallow raw HTML in markdown files
+  [markup.goldmark.renderer]
+      unsafe = true

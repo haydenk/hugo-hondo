@@ -1,0 +1,30 @@
+name = 'hondo'
+license = 'GPL-3.0'
+licenselink = 'https://github.com/haydenk/hugo-hondo-theme'
+description = 'Simple, minimialistic, full-featured Hugo theme'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/haydenk/hugo-hondo-theme'
+
+# If you have a running demo of the theme
+demosite = 'https://haydenk.github.io/hugo-hondo-theme'
+
+# Taxonomy terms
+tags = ['blog', 'company']
+features = ['some', 'awesome', 'features']
+
+# If the theme has a single author
+[author]
+  name = 'Hayden King'
+  homepage = 'https://github.com/haydenk'
+
+# If porting an existing theme
+[original]
+  author = 'Name of original author'
+  homepage = 'Website of original author'
+  repo = 'https://github.com/owner/repo'
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
