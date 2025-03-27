@@ -2,7 +2,7 @@
   <main>
     {{- .Content -}}
 
-    <h2>{{ .Title }}</h2>
+    <h2>{{ T "recent" }}</h2>
     <div class="recent">
       {{- range site.RegularPages -}}
         <h2><a href="{{- .RelPermalink }}">{{ .LinkTitle -}}</a></h2>

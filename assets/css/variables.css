@@ -5,6 +5,15 @@
 
     --prime: #3170a7;
     --grid: #e1e1e1;
-    --back: #fff;
+    --back: #fbfbfb;
     --text: #333;
 }
+
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --prime: #3170a7;
+        --back: #181818;
+        --text: silver;
+        --grid: #555;
+    }
+} */
