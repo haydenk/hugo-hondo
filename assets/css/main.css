@@ -1,3 +1,6 @@
+@use postcss-preset-env;
+@use postcss-custom-media;
+
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -16,6 +19,14 @@ body {
   background-color: var(--back);
   transition-property: background-color, border-color, color;
   transition-duration: 0.5s;
+}
+@custom-media --med (width <= 50rem);
+@media (--med) {
+  a { 
+    &:hover {
+      color: color-mod(black alpha(54%));
+    }
+  }
 }
 
 header {
