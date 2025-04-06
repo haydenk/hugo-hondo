@@ -6,6 +6,7 @@ themeDir=../..
 clean:
 	-rm -rv $(source)/public
 	-rm -rv $(source)/.hugo_build.lock
+	-rm -rv $(source)/hugo_stats.json
 
 serve:
 	hugo server -D --watch --source $(source) --themesDir $(themeDir) --disableFastRender

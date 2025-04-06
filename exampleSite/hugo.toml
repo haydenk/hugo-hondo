@@ -5,20 +5,29 @@ theme = 'hugo-hondo'
 disableKinds = [ "taxonomy", "term" ]
 ignoreErrors = [ "error-disable-taxonomy" ]
 
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+
 [params]
   description = ""
   keywords = []
 
-  mainCss = '/css/main.css'
   mainJs = '/js/main.js'
-  [[params.baseStyles]]
-    src = 'css/fonts.css'
-  [[params.baseStyles]]
-    src = 'css/variables.css'
-  [[params.baseStyles]]
-    src = 'css/normalize.css'
-  [[params.baseStyles]]
-    src = 'css/main.css'
 
 [[menus.main]]
   name = 'Home'
