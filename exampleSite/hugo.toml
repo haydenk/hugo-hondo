@@ -61,7 +61,7 @@ ignoreErrors = [ "error-disable-taxonomy" ]
     isPlainText = true
 
 [outputs]
-  home = ['html', 'rss', 'json']
+  home = ['html']
   page = ['html']
   section = ['html']
   taxonomy = ['html']
