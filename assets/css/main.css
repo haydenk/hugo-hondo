@@ -1,114 +1,139 @@
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  box-sizing: border-box;
-  border-collapse: collapse;
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
 }
 
-body {
-  margin: 0 16px;
-  font-family: var(--font-family);
-  font-feature-settings: normal;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text);
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.5s;
+.container {
+    margin: auto;
+    max-width: var(--width);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+}
+
+a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 header {
-  margin-top: 0.75rem;
-  margin-bottom: 2rem;
-
-  >div {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: var(--max-w);
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      div {
-        display: flex;
-        align-items: center;
-      }
-
-      ul {
-        display: flex;
-        align-items: center;
-        font-size: 1rem;
-        font-weight: 600;
-        white-space: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-
-        li {
-          list-style: none;
-          margin: 0 0.5rem;
-          padding: 0;
-        }
-      }
-    }
-  }
+    text-align: center;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px dotted #999;
 }
 
-footer {
-  margin-top: 0.75rem;
-  margin-bottom: 2rem;
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 
-  &>div {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: var(--max-w);  
-  }
+    a {
+        margin: 1.25rem;
+    }
+}
+
+strong, b {
+    color: var(--heading-color);
+}
+
+button {
+    margin: 0;
+    cursor: pointer;
+}
+
+time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
 }
 
 main {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--max-w);
-  animation: showup 0.7s;
-
-  p {
-    a {
-      color: var(--prime);
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
+    line-height: 1.6;
 }
 
-
-@keyframes showup {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
+table {
+    width: 100%;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+hr {
+    border: 0;
+    border-top: 1px dashed;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.7);
+img {
+    max-width: 100%;
 }
 
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(128, 128, 128, 0.2);
+code {
+    font-family: monospace;
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:active {
-  background-color: rgb(128, 128, 128);
+blockquote {
+    border-left: 1px solid #999;
+    color: var(--code-color);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
+.title h1 {
+    font-size: 1.5em;
+}
+
+.inline {
+    width: auto !important;
+}
+
+.highlight, .code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+}
+
+/* blog post list */
+ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+}
+
+ul.blog-posts li {
+    display: flex;
+}
+
+ul.blog-posts li span {
+    flex: 0 0 130px;
+}
+
+ul.blog-posts li a:visited {
+    color: var(--visited-color);
 }

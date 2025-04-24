@@ -9,7 +9,7 @@ clean:
 	-rm -rv $(source)/hugo_stats.json
 
 serve:
-	hugo server -D --watch --source $(source) --themesDir $(themeDir) --disableFastRender
+	hugo server -D --watch --source $(source) --themesDir $(themeDir)
 
 build:
 	hugo --gc --minify -s $(source) --themesDir $(themeDir)

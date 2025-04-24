@@ -1,7 +1,4 @@
 <header>
-    <nav>
-        <div></div>
-        {{- partial "menu.html" (dict "menuID" "main" "page" .) -}}
-        <div></div>
-    </nav>
+    <a href="/" class="title"><h1>{{ .Site.Title }}</h2></a>
+    <nav>{{- partial "menu.html" (dict "menuID" "main" "page" .) -}}</nav>
 </header>

@@ -11,9 +11,9 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID -}}
 
 {{- with index site.Menus $menuID -}}
-  <ul>
+  <div class="menu">
     {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) -}}
-  </ul>
+  </div>
 {{- end -}}
 
 {{- define "partials/inline/menu/walk.html" -}}
@@ -30,14 +30,12 @@ Renders a menu for the given menu ID.
         {{- $name = . -}}
       {{- end -}}
     {{- end -}}
-    <li>
-      <a
-        {{- range $k, $v := $attrs -}}
-          {{- with $v -}}
-            {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
-          {{- end -}}
-        {{- end -}}
-      >{{ $name }}</a>
-    </li>
-  {{- end -}}
+    <a
+    {{- range $k, $v := $attrs -}}
+      {{- with $v -}}
+        {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+      {{- end -}}
+    {{- end -}}
+  >{{ $name }}</a>
+{{- end -}}
 {{- end -}}

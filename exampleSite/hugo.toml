@@ -5,13 +5,25 @@ theme = 'hugo-hondo'
 disableKinds = [ "taxonomy", "term" ]
 ignoreErrors = [ "error-disable-taxonomy" ]
 
+[module]
+  [module.hugoVersion]
+    extended = false
+    min      = "0.112.0"
+
 
 [params]
   description = ""
   keywords = []
 
+  dateFormat = '2006-01-02'
+
   mainCss = '/css/main.css'
   mainJs = '/js/main.js'
+  [[params.baseStyles]]
+  src = 'css/variables.css'
+  [[params.baseStyles]]
+  src = 'css/main.css'
+
 
   [[params.baseStyles]]
     src = 'css/variables.css'
@@ -68,7 +80,7 @@ ignoreErrors = [ "error-disable-taxonomy" ]
   term = ['html']
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 10
 
 [markup]
   [markup.highlight]

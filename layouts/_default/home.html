@@ -3,10 +3,22 @@
     {{- .Content -}}
 
     <h2>{{ T "recent" }}</h2>
-    <div class="recent bg-avocado-400">
-      {{- range site.RegularPages -}}
-        <h2><a href="{{- .RelPermalink }}">{{ .LinkTitle -}}</a></h2>
-        {{- .Summary -}}
+    <div>
+      {{- $posts := where site.RegularPages "Type" "posts" -}}
+      {{- $paginator := .Paginate $posts -}}
+      {{- with $paginator -}}
+        {{- range first .PagerSize site.RegularPages -}}
+          <article>
+            <span>
+              <i>
+                <time datetime='{{ .Date.Format "2006-01-02" }}'>
+                  {{- .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) -}}
+                </time>
+              </i>
+            </span>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </article>
+        {{- end -}}
       {{- end -}}
     </div>
   </main>
