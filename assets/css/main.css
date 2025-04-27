@@ -15,8 +15,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-main);
+    font-family: var(--font-primary);
     color: var(--heading-color);
+}
+
+h1 {
+    font-size: 1.5em;
 }
 
 a {
@@ -30,29 +34,21 @@ a {
 }
 
 header {
-    text-align: center;
     margin-bottom: 1.75rem;
-    border-bottom: 1px dotted #999;
-}
 
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-
-    a {
-        margin: 1.25rem;
+    nav {
+        margin-bottom: 1.5rem;
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+        }
     }
 }
 
-strong, b {
-    color: var(--heading-color);
-}
-
-button {
-    margin: 0;
-    cursor: pointer;
+article {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 time {
@@ -65,75 +61,23 @@ main {
     line-height: 1.6;
 }
 
-table {
-    width: 100%;
-}
-
-hr {
-    border: 0;
-    border-top: 1px dashed;
-}
-
-img {
-    max-width: 100%;
-}
-
-code {
-    font-family: monospace;
-    padding: 2px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: 3px;
-}
-
-blockquote {
-    border-left: 1px solid #999;
-    color: var(--code-color);
-    padding-left: 20px;
-    font-style: italic;
-}
-
 footer {
     padding: 25px 0;
-    text-align: center;
 }
 
 .title:hover {
     text-decoration: none;
 }
 
-.title h1 {
-    font-size: 1.5em;
-}
-
-.inline {
-    width: auto !important;
-}
-
-.highlight, .code {
-    padding: 1px 15px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: 3px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    overflow-x: auto;
-}
-
-/* blog post list */
-ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-}
-
-ul.blog-posts li {
+.tags {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-ul.blog-posts li span {
-    flex: 0 0 130px;
-}
-
-ul.blog-posts li a:visited {
-    color: var(--visited-color);
+.pagination {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }

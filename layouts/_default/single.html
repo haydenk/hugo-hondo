@@ -1,12 +1,26 @@
 {{- define "main" -}}
   <main>
-    <h1>{{- .Title -}}</h1>
-
-    {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
-    {{- $dateHuman := .Date | time.Format ":date_long" -}}
-    <time datetime="{{- $dateMachine }}">{{ $dateHuman -}}</time>
-  
-    {{- .Content -}}
-    {{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
+    {{- if eq .Type "posts" }}
+    {{- if not .Params.menu -}}
+    <h1>{{ .Title }}</h1>
+    <p>
+      <i>
+        <time datetime='{{ .Date.Format "2006-01-02" }}'>
+          {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+        </time>
+      </i>
+    </p>
+    {{- end -}}
+    {{- end -}}
+    <content>
+      {{- .Content -}}
+    </content>
+    {{- with .GetTerms "tags" -}}
+    <p class="tags">
+      {{- range . -}}
+      <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+      {{- end -}}
+    </p>
+    {{- end -}}
   </main>
 {{- end -}}

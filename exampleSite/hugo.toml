@@ -1,8 +1,8 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://github.com/haydenk/hugo-hondo/'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
+title = 'Hondo Theme'
 theme = 'hugo-hondo'
-disableKinds = [ "taxonomy", "term" ]
+disableKinds = [ "taxonomy" ]
 ignoreErrors = [ "error-disable-taxonomy" ]
 
 [module]
@@ -10,27 +10,18 @@ ignoreErrors = [ "error-disable-taxonomy" ]
     extended = false
     min      = "0.112.0"
 
-
 [params]
-  description = ""
+  description = "Hondo Theme"
   keywords = []
-
-  dateFormat = '2006-01-02'
 
   mainCss = '/css/main.css'
   mainJs = '/js/main.js'
   [[params.baseStyles]]
-  src = 'css/variables.css'
-  [[params.baseStyles]]
-  src = 'css/main.css'
-
-
-  [[params.baseStyles]]
     src = 'css/variables.css'
   [[params.baseStyles]]
-    src = 'css/normalize.css'
-  [[params.baseStyles]]
     src = 'css/main.css'
+  [[params.baseStyles]]
+    src = 'css/syntax.css'
 
 [[menus.main]]
   name = 'Home'
@@ -38,18 +29,18 @@ ignoreErrors = [ "error-disable-taxonomy" ]
   weight = 10
 
 [[menus.main]]
-  name = 'Posts'
-  pageRef = '/posts'
+  name = "Today"
+  pageRef = "/today"
+  weight = 12
+
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
   weight = 20
 
 [[menus.main]]
-  name = 'Tags'
-  pageRef = '/tags'
-  weight = 30
-
-[[menus.main]]
   name = 'Github'
-  url = 'https://github.com/haydenk'
+  url = 'https://github.com/haydenk/hugo-hondo'
   weight = 99
   [menus.main.params]
     target = '_blank'
@@ -60,8 +51,8 @@ ignoreErrors = [ "error-disable-taxonomy" ]
     posts = '/post/:year/:month/:day/:slug/'
     today = '/today/:year-:month-:day/'
   [permalinks.section]
-    posts = '/posts/'
-    today = '/todays/'
+    posts = '/post/'
+    today = '/today/'
 
 [outputFormats]
   [outputFormats.rss]
@@ -73,7 +64,7 @@ ignoreErrors = [ "error-disable-taxonomy" ]
     isPlainText = true
 
 [outputs]
-  home = ['html']
+  home = ['html','json','rss']
   page = ['html']
   section = ['html']
   taxonomy = ['html']
@@ -84,8 +75,5 @@ ignoreErrors = [ "error-disable-taxonomy" ]
 
 [markup]
   [markup.highlight]
-    codeFences = false
-    
-  # Set to false to disallow raw HTML in markdown files
-  [markup.goldmark.renderer]
-      unsafe = true
+    noClasses = false
+    lineNos = true
