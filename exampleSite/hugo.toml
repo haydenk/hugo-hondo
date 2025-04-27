@@ -29,11 +29,6 @@ ignoreErrors = [ "error-disable-taxonomy" ]
   weight = 10
 
 [[menus.main]]
-  name = "Today"
-  pageRef = "/today"
-  weight = 12
-
-[[menus.main]]
   name = 'About'
   pageRef = '/about'
   weight = 20
@@ -49,10 +44,8 @@ ignoreErrors = [ "error-disable-taxonomy" ]
 [permalinks]
   [permalinks.page]
     posts = '/post/:year/:month/:day/:slug/'
-    today = '/today/:year-:month-:day/'
   [permalinks.section]
     posts = '/post/'
-    today = '/today/'
 
 [outputFormats]
   [outputFormats.rss]
