@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/haydenk/hugo-hondo/'
+baseURL = 'https://www.example.com/'
 languageCode = 'en-US'
 title = 'Hondo Theme'
 theme = 'hugo-hondo'
