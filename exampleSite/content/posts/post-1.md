@@ -30,3 +30,16 @@ func main() {
     }
 }
 ```
+
+package.json
+```json
+{
+  "scripts": {
+    "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css ./app/assets/stylesheets/shopify.scss:./app/assets/builds/shopify.css --no-source-map --load-path=node_modules",
+    "build:css:prefix": "postcss ./app/assets/builds/*.css --use=autoprefixer --dir=./app/assets/builds",
+    "build:css": "bun run build:css:compile && bun run build:css:prefix",
+    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"bun run build:css\"",
+    "build": "bun bun.config.js"
+  },
+}
+```

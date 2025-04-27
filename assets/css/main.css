@@ -65,6 +65,10 @@ footer {
     padding: 25px 0;
 }
 
+div.chroma {
+    overflow-x: scroll;
+}
+
 .title:hover {
     text-decoration: none;
 }
