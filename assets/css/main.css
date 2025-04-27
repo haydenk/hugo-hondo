@@ -55,6 +55,7 @@ time {
     font-family: monospace;
     font-style: normal;
     font-size: 15px;
+    text-wrap: nowrap;
 }
 
 main {
