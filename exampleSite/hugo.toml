@@ -14,15 +14,6 @@ ignoreErrors = [ "error-disable-taxonomy" ]
   description = "Hondo Theme"
   keywords = []
 
-  mainCss = '/css/main.css'
-  mainJs = '/js/main.js'
-  [[params.baseStyles]]
-    src = 'css/variables.css'
-  [[params.baseStyles]]
-    src = 'css/main.css'
-  [[params.baseStyles]]
-    src = 'css/syntax.css'
-
 [[menus.main]]
   name = 'Home'
   pageRef = '/'

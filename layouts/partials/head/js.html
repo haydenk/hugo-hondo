@@ -1,15 +1,16 @@
-{{- $scripts := .Scratch.Get "scripts" -}}
-{{- range $scripts -}}
-  {{- with resources.Get .src -}}
-    {{- if eq hugo.Environment "development" -}}
-      {{- with . | js.Build -}}
-        <script src="{{ .RelPermalink -}}"></script>
-      {{- end -}}
-    {{- else -}}
-      {{- $opts := dict "minify" true -}}
-      {{- with . | js.Build $opts | fingerprint -}}
-        <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity -}}" crossorigin="anonymous"></script>
-      {{- end -}}
+{{- $scripts := sort (resources.Match "js/*.js") ".Name" -}}
+{{- if eq hugo.Environment "development" -}}
+    {{- range $scripts -}}
+        {{- with resources.Get . -}}
+        <script src="{{ .RelPermalink }}"></script>
+        {{- end -}}
     {{- end -}}
-  {{- end -}}
+{{- else -}}
+    {{- $JS := slice -}}
+    {{- range $scripts -}}
+        {{- $JS = $JS | append (resources.Get .) -}}
+    {{- end -}}
+    {{- with $JS | resources.Concat "main.js" | minify | fingerprint -}}
+        <script src="{{ .RelPermalink }}"></script>
+    {{- end -}}
 {{- end -}}

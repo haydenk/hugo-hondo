@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
-  {{- block "styles" . -}} {{- end -}} <!-- Get "style_opts" variable from "styles" block -->
-  {{- $custom_styles := .Scratch.Get "style_opts" | default dict -}}
-  {{- $base_styles := .Site.Params.baseStyles -}}
-  {{- $base_styles := $base_styles | append $custom_styles -}}
-  {{- .Scratch.Set "styles" $base_styles -}}
-  {{- block "scripts" . }} {{ end }} <!-- Get "script_opts" variable from "scripts" block -->
-  {{- $custom_scripts := .Scratch.Get "script_opts" | default dict -}}
-  {{- $base_scripts := slice (dict "src" "js/main.js") $custom_scripts -}}
-  {{- .Scratch.Set "scripts" $base_scripts -}}
+  {{- block "styles" . -}} {{- end -}}
+  {{- block "scripts" . }} {{ end }}
   {{- partial "head.html" . -}}
 </head>
 <body>
