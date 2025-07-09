@@ -6,11 +6,14 @@
         {{- end -}}
     {{- end -}}
 {{- else -}}
-    {{- $JS := slice -}}
-    {{- range $scripts -}}
-        {{- $JS = $JS | append (resources.Get .) -}}
-    {{- end -}}
-    {{- with $JS | resources.Concat "main.js" | minify | fingerprint -}}
-        <script src="{{ .RelPermalink }}"></script>
+    {{- if $scripts -}}
+        {{- $JS := slice -}}
+        {{- range $scripts -}}
+            {{- $JS = $JS | append (resources.Get .) -}}
+        {{- end -}}
+        {{- $filename := .Site.Params.scripts_filename | default "scripts.js" -}}
+        {{- with $JS | resources.Concat $filename | minify | fingerprint -}}
+            <script src="{{ .RelPermalink }}"></script>
+        {{- end -}}
     {{- end -}}
 {{- end -}}

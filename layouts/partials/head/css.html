@@ -6,11 +6,14 @@
         {{- end -}}
     {{- end -}}
 {{- else -}}
-    {{- $CSS := slice -}}
-    {{- range $styles -}}
-        {{- $CSS = $CSS | append (resources.Get .) -}}
-    {{- end -}}
-    {{- with $CSS | resources.Concat "main.css" | minify | fingerprint -}}
-        <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- if $styles -}}
+        {{- $CSS := slice -}}
+        {{- range $styles -}}
+            {{- $CSS = $CSS | append (resources.Get .) -}}
+        {{- end -}}
+        {{- $filename := .Site.Params.styles_filename | default "styles.css" -}}
+        {{- with $CSS | resources.Concat $filename | minify | fingerprint -}}
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{- end -}}
     {{- end -}}
 {{- end -}}
